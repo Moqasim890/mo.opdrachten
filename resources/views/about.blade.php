@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>About Us</h1>
+<x-layout>
+    <x-slot name="header">
+        <h1>About Us</h1>
+    </x-slot>
+
     <p>Welcome to our website. We are dedicated to providing the best service possible.</p>
-</body>
-</html>
+</x-layout>

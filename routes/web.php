@@ -11,6 +11,10 @@ Route:: get('about', function () {
     return view('about');
 })->name('about');
 
+route::get('contact', function () {
+    return view('contact');
+})->name('terms');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
