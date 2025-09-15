@@ -1,7 +1,7 @@
 <x-layout>
-    <x-slot name="header">
+    <x-slot:title>
         <h1>About Us</h1>
-    </x-slot>
+    </x-slot:title>
 
     <p>Welcome to our website. We are dedicated to providing the best service possible.</p>
 </x-layout>
