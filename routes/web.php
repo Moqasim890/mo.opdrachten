@@ -4,8 +4,27 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return view('welcome', [
+        'title' => [
+            [
+            'name' => 'Larry Robot',
+            'age' => 5,
+            'color' => 'blue',
+        ],
+        [
+            'name' => 'Mo',
+            'age' => 7,
+            'color' => 'red',
+
+
+        ],        [
+            'name' => 'Herd',
+            'age' => 1,
+            'color' => 'green',
+        ],
+    ],
+    ]);
+});
 
 Route:: get('about', function () {
     return view('about');
@@ -16,9 +35,6 @@ route::get('contact', function () {
 })->name('terms');
 
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

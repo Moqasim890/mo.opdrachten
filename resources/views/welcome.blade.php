@@ -7,5 +7,13 @@
     <p>Feel free to reach out if you have any questions.</p>
     <p>Thank you for visiting our website!</p>
     <p>We hope to see you again soon.</p>
+     @foreach ($title as $item)
+         <p>{{ $item['name'] }}</p>
+         <p>{{ $item['age'] }}</p>
+         <p>{{ $item['color'] }}</p>
+        
+     @endforeach
+
+
     
 </x-layout>
