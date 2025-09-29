@@ -1,47 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
+use Illuminate\View\View;
 
-Route::get('/', function () {
-    return view('welcome', [
-        'title' => [
-            [
-            'name' => 'Larry Robot',
-            'age' => 5,
-            'color' => 'blue',
-        ],
-        [
-            'name' => 'Mo',
-            'age' => 7,
-            'color' => 'red',
+// Home
+Route::view('/', 'welcome')->name('home');
 
+// Jobs
+Route::get('/jobs', function (): View {
+    $jobs = [
+        ['id' => 1, 'name' => 'Larry Robot', 'age' => 5, 'color' => 'blue'],
+        ['id' => 2, 'name' => 'Mo',          'age' => 7, 'color' => 'red'],
+        ['id' => 3, 'name' => 'Herd',        'age' => 1, 'color' => 'green'],
+    ];
 
-        ],        [
-            'name' => 'Herd',
-            'age' => 1,
-            'color' => 'green',
-        ],
-    ],
-    ]);
-});
+    return view('jobs', compact('jobs'));
+})->name('jobs');
 
-Route:: get('about', function () {
-    return view('about');
-})->name('about');
-
-route::get('contact', function () {
-    return view('contact');
-})->name('terms');
-
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
-    Volt::route('settings/password', 'settings.password')->name('settings.password');
-    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
-});
-
-require __DIR__.'/auth.php';
+// Contact
+Route::view('/contact', 'contact')->name('contact');
