@@ -1,22 +1,13 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
 
 
-class Job {
-    public static function all()   {
-        return [
-            ['id' => 1, 'name' => 'Larry Robot', 'age' => 5, 'color' => 'blue'],
-            ['id' => 2, 'name' => 'Mo',          'age' => 7, 'color' => 'red'],
-            ['id' => 3, 'name' => 'Herd',        'age' => 1, 'color' => 'green'],
-        ];
-    }
-
-    public static function find(int $id) {
-        $jobs = array_filter(static::all(), fn($job) => $job['id'] == $id);
+class Job extends Model {
+    protected $table = 'jobs_listings';
 
 
-        return reset($jobs) ?: null;
+    protected $fillable = ['title', 'salary'];
 
-    }
 }

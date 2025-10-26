@@ -6,19 +6,16 @@ use App\Models\Job;
 
 
 // Home
-Route::view('/', 'welcome')->name('home');
-
+Route::get('/', function ()
+{
+ return view('welcome');
+});
 
 
 // Jobs
 Route::get('/jobs', function (): View {
-
-    $jobs = Job::all();
-    
-
-
-    return view('jobs', compact('jobs'));
-})->name('jobs');
+    return view('jobs', ['jobs' => Job::all()]);
+});
 
 // Contact      
 Route::view('/contact', 'contact')->name('contact');
