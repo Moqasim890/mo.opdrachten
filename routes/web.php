@@ -15,7 +15,7 @@ Route::get('/', function ()
 // Jobs
 Route::get('/jobs', function (): View {
 
-    return view('jobs', ['jobs' => Job::with('employer')->get()]);
+    return view('jobs', ['jobs' => Job::with('employer')->simplePaginate(3)]);
 });
 
 // Contact      
