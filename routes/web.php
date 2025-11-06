@@ -23,7 +23,7 @@ Route::get('/jobs', function (): View {
 Route::get('/jobs/create', function (): View {
     return view('job.create');
 });
-
+// Store new job
 
 Route::post('/jobs', function () {
         job::create([
